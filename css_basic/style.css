@@ -1,0 +1,32 @@
+/* Make the page use the full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 1. <body> is a flex container with a column layout */
+body {
+    display: flex;
+    flex-direction: column; /* header, main, footer stacked vertically */
+}
+
+/* 2. <main> is a flex container with a row layout */
+main {
+    display: flex;
+    flex-direction: row; /* article | aside side-by-side */
+    flex: auto;          /* let main take the remaining space between header and footer */
+}
+
+/* 3. <article> takes 2/3 of the width, <aside> takes 1/3 */
+article {
+    flex: 2;             /* two parts */
+    overflow-y: auto;    /* scroll inside article if content is tall */
+    min-height: 0;       /* helps scrolling behave correctly in some browsers */
+}
+
+aside {
+    flex: 1;             /* one part */
+    overflow-y: auto;    /* scroll inside aside if content is tall */
+    min-height: 0;
+}
